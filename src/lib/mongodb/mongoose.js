@@ -1,10 +1,7 @@
 import mongoose from "mongoose";
 let initialized = false;
 
-// The error is the use of parentheses `()` instead of curly braces `{}` for the function body.
-// Arrow functions with parentheses return an expression, but here you have statements (not a single expression).
-// It should be curly braces `{}` for a block body.
-
+//create a connection to MongoDB
 export const connect = async () => {
     mongoose.set('strictQuery', true);
 
@@ -12,8 +9,9 @@ export const connect = async () => {
         console.log('MongoDB already connected');
         return;
     }
+    // when if the connection is already established, do not connect again
     try {
-        await mongoose.connect(process.env.MONGO_URI, {
+        await mongoose.connect(process.env.MONGODB_URI, {
             dbName: "movie-app",
             useNewUrlParser: true,
             useUnifiedTopology: true, 
