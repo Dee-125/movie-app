@@ -14,6 +14,6 @@ export default function RootLayout({ children }) {
           </ThemeComponent>
         </body>
       </html>
-    </ClerkProvider>
+   </ClerkProvider>
   );
 }
